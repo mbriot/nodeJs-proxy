@@ -1,0 +1,1 @@
+[{"id":1,"host":"ip.jsontest.com","path":"/","method":"GET","fonction":"error500","statut":"on"},{"id":2,"host":"headers.jsontest.com","path":"/","method":"GET","statut":"off"},{"id":3,"host":"echo.jsontest.com","path":"/","method":"GET","statut":"off"}]

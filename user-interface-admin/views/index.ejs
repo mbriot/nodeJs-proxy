@@ -1,0 +1,319 @@
+<!-- Include doctype -->
+<% include doctype.ejs %>
+
+<body>
+<!-- Include navbar -->
+<% include nav.ejs %>
+
+<div class="container">
+
+
+
+  <div class="row-fluid">
+    <center><h4>Update some rules</h4></center>
+    <div class="span12">
+      <form class="form-inline well" action="/update" method="post">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" href="#item1" data-toggle="collapse"> <span class="badge badge-warning btn-large">CRM</span> </a> 
+        </div>
+        <div id="item1" class="collapse">
+          <div class="accordion-inner"> 
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+                <tr><th>Host</th><th>Service</th><th>Method</th><th>Function</th><th>isEnabled</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% for(i=0 ; i < actualRules.length ; i++){%>
+              <%if(actualRules[i].host == "ip.jsontest.com"){%>	
+              <tr>
+                <td><%=  actualRules[i].host %></td>
+                <td><%=  actualRules[i].service %></td>
+                <td><%=  actualRules[i].method %></td>
+                <td>
+                  <div class="control-group">
+                    <div class="controls">
+                      <select name="fonction_<%=actualRules[i].id %>" id="simple" class="input-large">											
+                        <% for(j=0 ; j < redirection.length ; j++){%>
+                        <% if(redirection[j].trim() == actualRules[i].fonction){%>
+                        <option selected="true"><%= redirection[j].trim() %></option>	
+                        <%} else {%>
+                        <option><%= redirection[j].trim() %></option>	
+                        <%}
+                        }%>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <% var isRouteEnabled = "" ;
+                if(actualRules[i].statut == "on"){
+                isRouteEnabled = "checked";
+                }%>
+                <td>   <label  class="checkbox"><input name="isRouteEnabled_<%=  actualRules[i].id %>" type="checkbox" <%=  isRouteEnabled %> /></label>  </td>
+              </tr>
+              <%}%>
+              <%}%>	
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="accordion-heading">
+          <a class="accordion-toggle" href="#item2" data-toggle="collapse"> <span class="badge badge-info">IAM</span> </a> 
+        </div>
+        <div id="item2" class="collapse">
+          <div class="accordion-inner">
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+                <tr><th>Host</th><th>Service</th><th>Method</th><th>Function</th><th>isEnabled</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% for(i=0 ; i < actualRules.length ; i++){%>
+              <%if(actualRules[i].host == "iam"){%>	
+              <tr>
+                <td><%=  actualRules[i].host %></td>
+                <td><%=  actualRules[i].service %></td>
+                <td><%=  actualRules[i].method %></td>
+                <td>
+                  <div class="control-group">
+                    <div class="controls">
+                      <select name="fonction_<%=actualRules[i].id %>" id="simple" class="input-large">											
+                        <% for(j=0 ; j < redirection.length ; j++){%>
+                        <% if(redirection[j].trim() == actualRules[i].fonction){%>
+                        <option selected="true"><%= redirection[j].trim() %></option>	
+                        <%} else {%>
+                        <option><%= redirection[j].trim() %></option>	
+                        <%}
+                        }%>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <% var isRouteEnabled = "" ;
+                if(actualRules[i].statut == "on"){
+                isRouteEnabled = "checked";
+                }%>
+                <td>   <label  class="checkbox"><input name="isRouteEnabled_<%=  actualRules[i].id %>" type="checkbox" <%=  isRouteEnabled %> /></label>  </td>
+              </tr>
+              <%}%>
+              <%}%>	
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="accordion-heading">
+          <a class="accordion-toggle" href="#item3" data-toggle="collapse"> <span class="badge badge-success">FTOPIA</span> </a> 
+        </div>
+        <div id="item3" class="collapse">
+          <div class="accordion-inner">
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+                <tr><th>Host</th><th>Service</th><th>Method</th><th>Function</th><th>isEnabled</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% for(i=0 ; i < actualRules.length ; i++){%>
+              <%if(actualRules[i].host == "ftopia"){%>	
+              <tr>
+                <td><%=  actualRules[i].host %></td>
+                <td><%=  actualRules[i].service %></td>
+                <td><%=  actualRules[i].method %></td>
+                <td>
+                  <div class="control-group">
+                    <div class="controls">
+                      <select name="fonction_<%=actualRules[i].id %>" id="simple" class="input-large">											
+                        <% for(j=0 ; j < redirection.length ; j++){%>
+                        <% if(redirection[j].trim() == actualRules[i].fonction){%>
+                        <option selected="true"><%= redirection[j].trim() %></option>	
+                        <%} else {%>
+                        <option><%= redirection[j].trim() %></option>	
+                        <%}
+                        }%>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <% var isRouteEnabled = "" ;
+                if(actualRules[i].statut == "on"){
+                isRouteEnabled = "checked";
+                }%>
+                <td>   <label  class="checkbox"><input name="isRouteEnabled_<%=  actualRules[i].id %>" type="checkbox" <%=  isRouteEnabled %> /></label>  </td>
+              </tr>
+              <%}%>
+              <%}%>	
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="accordion-heading">
+          <a class="accordion-toggle" href="#item4" data-toggle="collapse"> <span class="badge badge-error">KEYSTONE</span> </a> 
+        </div>
+        <div id="item4" class="collapse">
+          <div class="accordion-inner">
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+                <tr><th>Host</th><th>Service</th><th>Method</th><th>Function</th><th>isEnabled</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% for(i=0 ; i < actualRules.length ; i++){%>
+              <%if(actualRules[i].host == "keystone"){%>	
+              <tr>
+                <td><%=  actualRules[i].host %></td>
+                <td><%=  actualRules[i].service %></td>
+                <td><%=  actualRules[i].method %></td>
+                <td>
+                  <div class="control-group">
+                    <div class="controls">
+                        <% for(j=0 ; j < redirection.length ; j++){%>
+                        <% if(redirection[j].trim() == actualRules[i].fonction){%>
+                        <option selected="true"><%= redirection[j].trim() %></option>	
+                        <%} else {%>
+                        <option><%= redirection[j].trim() %></option>	
+                        <%}
+                        }%>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <% var isRouteEnabled = "" ;
+                if(actualRules[i].statut == "on"){
+                isRouteEnabled = "checked";
+                }%>
+                <td>   <label  class="checkbox"><input name="isRouteEnabled_<%=  actualRules[i].id %>" type="checkbox" <%=  isRouteEnabled %> /></label>  </td>
+              </tr>
+              <%}%>
+              <%}%>	
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="accordion-heading">
+          <a class="accordion-toggle" href="#item5" data-toggle="collapse"> <span class="badge badge-important">SWIFT</span> </a> 
+        </div>
+        <div id="item5" class="collapse">
+          <div class="accordion-inner">
+            <table class="table table-bordered table-striped table-condensed">
+              <thead>
+                <tr><th>Host</th><th>Service</th><th>Method</th><th>Function</th><th>isEnabled</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% for(i=0 ; i < actualRules.length ; i++){%>
+              <%if(actualRules[i].host == "keystone"){%>	
+              <tr>
+                <td><%=  actualRules[i].host %></td>
+                <td><%=  actualRules[i].service %></td>
+                <td><%=  actualRules[i].method %></td>
+                <td>
+                  <div class="control-group">
+                    <div class="controls">
+                        <% for(j=0 ; j < redirection.length ; j++){%>
+                        <% if(redirection[j].trim() == actualRules[i].fonction){%>
+                        <option selected="true"><%= redirection[j].trim() %></option>	
+                        <%} else {%>
+                        <option><%= redirection[j].trim() %></option>	
+                        <%}
+                        }%>
+                      </select>
+                    </div>
+                  </div>
+                </td>
+                <% var isRouteEnabled = "" ;
+                if(actualRules[i].statut == "on"){
+                isRouteEnabled = "checked";
+                }%>
+                <td>   <label  class="checkbox"><input name="isRouteEnabled_<%=  actualRules[i].id %>" type="checkbox" <%=  isRouteEnabled %> /></label>  </td>
+              </tr>
+              <%}%>
+              <%}%>	
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="controls">
+          <span>.</span>
+          <button type="submit" class="btn btn-primary btn-small pull-right">Update it !</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <center><h4>Add a new rule !</h4></center>
+    <div class="span12">
+      <form class="form-inline well" action="/addRules" method="post">				
+        <table class="table">
+          <thead>
+            <tr>
+              <th><span class="badge badge-warning btn-large">Host</span></th>
+              <th><span class="badge badge-info btn-large">Service</span></th>
+              <th><span class="badge badge-alert btn-large">Method</span></th>
+              <th><span class="badge badge-success btn-large">Function</span></th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td><input name="addRuleHost" id="host" data-provide="typeahead" class="input-medium"></td>
+            <td><input name="addRuleService" id="service" class="input-medium"></td>
+            <td><input name="addRuleMethod" id="method" data-provide="typeahead" class="input-medium"></td>
+            <td>							
+              <div class="control-group">
+                <div class="controls">
+                  <select name="addRuleRedirection" id="simple" class="input-large">											
+                    <% for(j=0 ; j < redirection.length ; j++){%>
+                    <option><%= redirection[j].trim() %></option>	
+                    <%}%>
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="controls">
+          <span>.</span>
+          <button type="submit" class="btn btn-primary btn-small pull-right">Add it !</button>
+        </div>
+      </form>
+
+      <script>
+$(function (){
+    var hostList = ['crm','iam','ftopia','keystone','openstack'];
+    var methodList = ['HEAD','PUT','DELETE','POST','GET'];
+    $('#host').typeahead({source: hostList});
+    $('#method').typeahead({source: methodList});
+    });
+      </script>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <center><h4>Update a redirection</h4></center>
+    <div class="span12">
+      <form class="form-inline well" action="/addRules" method="post">
+        <div class="controls">
+          <span>.</span>
+          <button type="submit" class="btn btn-primary btn-small pull-right">Update it !</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <center><h4>Add a redirection</h4></center>
+    <div class="span12">
+      <form class="form-inline well" action="/addRules" method="post">
+        <div class="controls">
+          <span>.</span>
+          <button type="submit" class="btn btn-primary btn-small pull-right">Add it !</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div><!-- container -->
+<body>

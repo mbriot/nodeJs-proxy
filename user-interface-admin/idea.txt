@@ -1,0 +1,18 @@
+PRIORITY :
+* reboot mule PPI en ayant le proxy en passe-plat (pb de host iam crm <> d'en local => proxy replace local par PPI marche pas ds ce cas)
+
+TODO :
+* envoi équipe procédure tunel ssh vers nodeProxyUI
+* relancer tanguy pour avoir une URL publique sur ysance01.cloudwatt
+
+BUG :
+* ds chaque div de index.ejs, il faut absolument mettre <span>.</span> pour que le bton submit reste en place.
+
+EVOL :
+* Faire en sorte d externaliser les fonctions pour pouvoir les parametrer dans l interface
+* possibilité de supprimer une règle
+* possibilité de mettre à jour le code d'une redirection
+* bouton on/off : déselectionner toute les règles
+* insert BDD : time start request + time end request + nom service + host
+DONE : possibilité d ajouter une règle
+DONE : ds les listes déroulantes, n'avoir aucun doublon
